@@ -5,7 +5,11 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [clj-http "3.10.0"]
-                 [cheshire "5.9.0"]]
-  :main ^:skip-aot git-peek.core
+                 [cheshire "5.9.0"]
+                 [clj-time "0.15.2"]
+                 [compojure "1.6.1"]
+                 [http-kit "2.3.0"]
+                 [ring/ring-defaults "0.3.2"]]
+  :main ^:skip-aot git-peek.api
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
