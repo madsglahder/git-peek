@@ -4,7 +4,8 @@
             [org.httpkit.server :as server]
             [ring.middleware.defaults :as ring]
             [git-peek.core :as gp]
-            [cheshire.core :as json]))
+            [cheshire.core :as json])
+  (:gen-class))
 
 (def status-headers {:status 200
                      :headers {"Content-Type" "text/html"}})
