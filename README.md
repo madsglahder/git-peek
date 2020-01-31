@@ -18,3 +18,13 @@ Find the most recent repos for an organisation
 
 
 ## Build and run
+
+There's three methods available for running this app: Leiningen, Java or Docker.
+
+For Leiningen simply `lein run` and you're in business.
+
+For Java you will need the standalone jar. This is compiled with `lein uberjar`
+and subsequently run with `java -jar target/uberjar/git-peek-0.1.0-SNAPSHOT-standalone.jar`
+
+Easiest is building and running a docker image. For this build the container with `docker build -t rest-app .`
+and run with `docker run rest-app`

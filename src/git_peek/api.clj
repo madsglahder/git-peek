@@ -38,7 +38,6 @@
                  (route/not-found "404 not found"))
 
 (defn -main
-  "This is our main entry point"
   [& args]
   (let [port (Integer/parseInt (or (System/getenv "PORT") "3000"))]
     (server/run-server (ring/wrap-defaults
