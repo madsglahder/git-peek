@@ -27,4 +27,4 @@ For Java you will need the standalone jar. This is compiled with `lein uberjar`
 and subsequently run with `java -jar target/uberjar/git-peek-0.1.0-SNAPSHOT-standalone.jar`
 
 Easiest is building and running a docker image. For this build the container with `docker build -t rest-app .`
-and run with `docker run rest-app`
+and run with `docker run -p 3000:3000 rest-app`
