@@ -17,24 +17,27 @@
                                   (:repo (:params req))))))
 
 (defn repo-comments
-  [req]
+  [repo year]
+  (println repo year)
   (assoc status-headers :body (json/generate-string
                                 (gp/helper-commits-year
-                                  (:repo (:params req))
-                                  (:year (:params req))))))
+                                  repo
+                                  year))))
 
 (defn org-repo-recents
-  [req]
+  [orgname amount]
   (assoc status-headers :body (json/generate-string
                                 (gp/helper-get-repo-listing
-                                  (:orgname (:params req))
-                                  (:amount (:params req))))))
+                                  orgname
+                                  amount))))
 
 (ccore/defroutes app-routes
                  (ccore/GET "/" [] "Hello World, I'm alive")
-                 (ccore/GET "/shopify/repo-languages" [] repo-languages)
-                 (ccore/GET "/shopify/repo-comments" [] repo-comments)
-                 (ccore/GET "/shopify/org-repo-recents" [] org-repo-recents)
+                 (ccore/GET "/shopify/repo-languages" [] repo-languages) ;; ok
+                 (ccore/GET "/shopify/repo-comments"
+                            [repo year] (repo-comments repo year))
+                 (ccore/GET "/shopify/org-repo-recents"
+                            [orgname amount] (org-repo-recents orgname amount))
                  (route/not-found "404 not found"))
 
 (defn -main
